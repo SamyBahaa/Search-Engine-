@@ -14,19 +14,12 @@ public class SecondActivity extends AppCompatActivity {
 
     TextView test;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
-        test =  findViewById(R.id.textView) ;
-
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            test.setText(extras.getString("key"));
-        }
-
-
+        test =  findViewById(R.id.resultTextView) ;
     }
 
     @Override
@@ -36,6 +29,10 @@ public class SecondActivity extends AppCompatActivity {
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            searchView.setQuery(extras.getString("key"), false);
+        }
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -49,4 +46,6 @@ public class SecondActivity extends AppCompatActivity {
         });
         return true;
     }
+
+
 }
