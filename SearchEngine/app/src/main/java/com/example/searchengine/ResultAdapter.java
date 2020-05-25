@@ -34,7 +34,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultView
     public void onBindViewHolder(@NonNull ResultViewHolder holder, int position) {
         ResultData currentItem = mResultData.get(position);
 
-        holder.urlTextView.setText(currentItem.Id);
+        holder.urlTextView.setText(currentItem.URL);
         holder.nameTextView.setText(currentItem.Name);
     }
 

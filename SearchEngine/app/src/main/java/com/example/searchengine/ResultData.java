@@ -3,14 +3,14 @@ package com.example.searchengine;
 public class ResultData {
 
     public String _id;
-    public String Id;
+    public String URL;
     public String Name;
-    public float Ranking;
+    public float Relavents;
 
-    public ResultData(String _id, String id, String name, float ranking) {
+    public ResultData(String _id, String URL, String name, float relavents) {
         this._id = _id;
-        Id = id;
+        this.URL = URL;
         Name = name;
-        Ranking = ranking;
+        Relavents = relavents;
     }
 }
