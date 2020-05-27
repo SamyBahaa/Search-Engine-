@@ -2,6 +2,11 @@ var express = require('express')
 var app = express()
 var MongoClinet = require('mongodb').MongoClient
 var url ="mongodb://localhost:27017/result"
+var cursor
+
+app.listen(3000,() =>{
+    console.log("listening on port 3000...")
+})
 
 app.use(express.json())
 
@@ -14,12 +19,13 @@ MongoClinet.connect(url,(err,db) => {
        
         var collection =myDb.collection('result')
 
+        //Fetching Data from Result Database
         app.post('/DataResult',(req,res) =>{
-            
-           var cursor=collection.find().toArray((err,result) => {
+
+           cursor=collection.find().toArray((err,result) => {
 
             if(result != null){
-                console.log(result)
+
                 res.status(200).send(result)
             }else{
                 res.status(404).send()
@@ -27,10 +33,24 @@ MongoClinet.connect(url,(err,db) => {
 
            });
         })
+
+        //Getting the numbers of document in the database
+        app.post('/Number',(req,res) =>{
+
+            cursor=collection.countDocuments((err,result) => {
+            
+                if (result != null){
+                    console.log(result)
+                    res.status(200).send({result});
+                }else{
+                    res.status(404).send()
+                }
+
+            });
+
+        })
+
     }
 
 })
 
-app.listen(3000,() =>{
-    console.log("listening on port 3000...")
-})

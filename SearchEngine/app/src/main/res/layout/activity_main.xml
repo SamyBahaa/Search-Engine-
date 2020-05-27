@@ -10,6 +10,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="44dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="15dp"
+            android:onClick="getSpeechInput"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_voice" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="410dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="349dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text1"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="0dp"
+                    android:ems="10"
+                    android:hint="Search Here"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/text1"
             android:layout_width="150dp"
@@ -36,42 +80,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="340dp"
+            android:layout_marginBottom="310dp"
             android:onClick="OnSearch"
             android:text="Search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="37dp"
-            android:layout_height="43dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="430dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/searchEditText"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_search" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-        <EditText
-            android:id="@+id/searchEditText"
-            android:layout_width="331dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/text1"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="13dp"
-            android:ems="10"
-            android:hint="Search Here"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/searchButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
